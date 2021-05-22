@@ -5,7 +5,7 @@
 <br>
 <p>Para ver infos de um linux, você pode usar o comando</p>
 
-```
+```shell
 cat /etc/*-release
 ```
 </details>
