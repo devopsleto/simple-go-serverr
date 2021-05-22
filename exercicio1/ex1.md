@@ -2,7 +2,9 @@
 
 <details>
 <summary>Abra aqui pra ler uma dica (mas tente fazer sem abrir)</summary>
-Para ver infos de um linux, você pode usar o comando \
+<br>
+<p>Para ver infos de um linux, você pode usar o comando</p>
+
 ```
 cat /etc/*-release
 ```
