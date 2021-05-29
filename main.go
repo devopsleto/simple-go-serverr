@@ -18,7 +18,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func rootHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "root!!!")
+	fmt.Fprintf(w, "LETO!!!")
 }
 
 func errHandler(w http.ResponseWriter, r *http.Request) {
