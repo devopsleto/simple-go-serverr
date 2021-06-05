@@ -1,8 +1,7 @@
-FROM golang:1.15.2
+FROM alpine
 
-RUN mkdir $GOPATH/app
-WORKDIR $GOPATH/app
+RUN mkdir /app 
 
-COPY . .
+COPY simple-go-serverr /app/simple-go-serverr
 
-CMD go run .
+CMD cd /app && ./simple-go-serverr
