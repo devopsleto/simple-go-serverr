@@ -1,8 +1,3 @@
-FROM golang:1.15.2
+FROM simpleserver:1.0
 
-RUN mkdir $GOPATH/app
-WORKDIR $GOPATH/app
-
-COPY . .
-
-CMD go run .
+CMD echo "rodando:" && go run .
