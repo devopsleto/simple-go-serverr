@@ -1,8 +1,6 @@
-FROM golang:1.15.2
+FROM postgres:latest
 
-RUN mkdir $GOPATH/app
-WORKDIR $GOPATH/app
+RUN mkdir /bd
+WORKDIR /bd
 
-COPY . .
-
-CMD go run .
+CMD postgres -D /bd
