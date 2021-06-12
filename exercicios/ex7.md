@@ -1,0 +1,1 @@
+**Exercício 7:** Suba aquele projetinho do exercicio 5 na AWS
