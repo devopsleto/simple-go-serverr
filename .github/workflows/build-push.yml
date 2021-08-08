@@ -1,0 +1,24 @@
+name: GitHub Actions Demo
+on: 
+  push:
+    branches:
+      - 'main'
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: docker build -t simple-server:1.0 .
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+      - run: docker tag simple-go-server:1.0 462535132875.dkr.ecr.us-east-2.amazonaws.com/simple-go-server:latest  
+      - run: docker push 462535132875.dkr.ecr.us-east-2.amazonaws.com/simple-go-server:latest
+      - run: echo "🍏 This job's status is ${{ job.status }}."
