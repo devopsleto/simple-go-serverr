@@ -1,10 +1,10 @@
-name: GitHub Actions Demo
+name: Build On Push
 on: 
   push:
     branches:
       - 'main'
 jobs:
-  Explore-GitHub-Actions:
+  build-on-push:
     runs-on: ubuntu-latest
     steps:
       - 
@@ -15,7 +15,14 @@ jobs:
         uses: docker/setup-buildx-action@v1
       - name: Check out repository code
         uses: actions/checkout@v2
-      - run: docker build -t simple-server:1.0 .
+      - name: Docker Build
+        run: docker build -t simple-server:1.0 .
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
