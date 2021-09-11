@@ -26,6 +26,6 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-      - run: docker tag simple-go-server:1.0 462535132875.dkr.ecr.us-east-2.amazonaws.com/simple-go-server:latest  
+      - run: docker tag simple-go-server:1.0 public.ecr.aws/y5c4p8q4/simple-go-server:latest  
       - run: docker push public.ecr.aws/y5c4p8q4/simple-go-server:latest
       - run: echo "🍏 This job's status is ${{ job.status }}."
